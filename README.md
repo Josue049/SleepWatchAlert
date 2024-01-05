@@ -40,7 +40,7 @@ This was THE BIGGEST PROBLEM without a doubt and the most time consuming. I had 
 ### LOCAL USE OF THE PROGRAM
 I recommend using HTTPS, since activating the camera on the client side is not allowed when using HTTP. The best practice would be to use the program from a local network so that it can be accessed from a cell phone within the same house. To achieve this, HTTPS can be implemented with OPENSSL.
 
-A certificate must be generated with OPENSSL and then copy the "server.cer" and "server.key" files to the "cer" folder.
+A certificate must be generated with OPENSSL and then copy the "server.cer" and "server.key" files to the "cert" folder.
 
 
 ## And finally, the sum of all this effort led to the creation of SleepWatch ALERT 2.0
