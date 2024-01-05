@@ -15,6 +15,17 @@ It is a project with a lot of growth potential and in which I have put a lot of 
 ### USE
 The project consists of creating a web page that the mother or father can access, activate the camera and, through artificial intelligence, detect the baby's eyes to verify if she is awake or still sleeping. If the baby wakes up, she will automatically send an SMS to the mother's phone, although ideally the mother will have a smart watch to feel the vibration on her arm when the SMS arrives.
 
+To install and test the program, follow these steps:
+1. Clone the project repository from GitHub: [SleepWatch Alert Repository]
+https://github.com/Josue049/SleepWatchAlert
+2. Create a virtual environment and install all the dependencies mentioned in the
+`requirements.txt`
+3. Download OpenSSL to create your license and key. Then, create a folder called "cert" and
+place the files there.
+4. Run the `app.py` file and enter the port shown in the terminal.
+5. Register (you'll need a Twilio account to complete some fields), log in, and use the page as
+normal.
+
 ### INSPIRATION FROM A REAL CASE
 In my house we constantly make video calls to monitor my niece and notify her mother if she wakes up, and although it seems like a good solution, this can be subject to several inconveniences such as always having to ask someone else for help or simply having whoever is watching get distracted
 
