@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome, {{ user_baby }}
+{% endblock %}
+
+{% block main %}
+    <p>Focuses on {{ user_baby }} and shows her face clearly<br>We will send a message to this number +{{ number }} if she wakes up</p>
+    <video id="videoElement" autoplay playsinline></video>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const videoElement = document.getElementById('videoElement');
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            videoElement.srcObject = stream;
+
+            const sendVideoFrame = async () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+                const imageData = canvas.toDataURL('image/jpeg', 0.7);
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/get_frame', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        console.log(response.message);
+                    }
+                };
+                xhr.send('frame=' + encodeURIComponent(imageData));
+            };
+
+            setInterval(sendVideoFrame, 1000);
+        });
+    </script>
+    
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+{% endblock %}

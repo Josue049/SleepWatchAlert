@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" onsubmit="validateForm()">
+        <p>Remember to create the sever.cer and server.key files inside the cert folder for use on the local network https://</p>
+        <p>Also enter the country code. Example from Peru:+51XXX-XXX-XXX</p>
+        <p>USE OF THE <a href="https://www.twilio.com">TWILIO</a> API: Create an account to obtain your twilio phone number and your ACCOUNT and TOKEN code.</p >
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="name_baby" name="name_baby" placeholder="Baby's name" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="phone_number" name="phone_number" placeholder="Phone number" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="twilio_number" name="twilio_number" placeholder="(Twilio) Phone number " type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="account" name="account" placeholder="(Twilio) ACCOUNT" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="token" name="token" placeholder="(Twilio) TOKEN" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Password (again)" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    {% if mostrar_alert %}
+    <script>
+        alert("Username in use, choose another.");
+    </script>
+    {% endif %}
+{% endblock %}
