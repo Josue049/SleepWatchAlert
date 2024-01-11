@@ -2,7 +2,7 @@
 
 #### Description:
 
-Through this project, I seek to create a free alternative to baby video surveillance cameras. This was done thinking about families who do not have the financial resources to purchase a specialized camera, but who have a computer and/or cell phone at home. The goal is to provide easy and free access so that parents can monitor and ensure the well-being of their baby. Additionally, the project is designed to be lightweight and run smoothly on low-resource computers.
+Through this project, I seek to create a free alternative to baby video surveillance cameras. This was done thinking about families who do not have the financial resources to purchase a specialized camera. The goal is to provide easy and free access so that parents can monitor and ensure the well-being of their baby. Additionally, the project is designed to be lightweight and run smoothly on low-resource computers.
 
 ![Screenshot0](https://i.ibb.co/jLNTdhg/Screenshot.png)
 ![Screenshot1](https://i.ibb.co/X3sSc80/Screenshot-1.png)
