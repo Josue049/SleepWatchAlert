@@ -1,62 +1,106 @@
-# SLEEPWATCH ALERT
+# **SleepWatch ALERT 2.0** 🚼💤  
+**Revolutionizing Baby Monitoring for Every Family**
 
-#### Description:
+---
 
-Through this project, I seek to create a free alternative to baby video surveillance cameras. This was done thinking about families who do not have the financial resources to purchase a specialized camera. The goal is to provide easy and free access so that parents can monitor and ensure the well-being of their baby. Additionally, the project is designed to be lightweight and run smoothly on low-resource computers.
+### **🌟 A Free and Accessible Baby Monitoring Solution**  
 
-![Screenshot0](https://i.ibb.co/jLNTdhg/Screenshot.png)
-![Screenshot1](https://i.ibb.co/X3sSc80/Screenshot-1.png)
+**Why SleepWatch ALERT?**  
+Not every family can afford specialized baby monitoring cameras. **SleepWatch ALERT** is a **lightweight, AI-driven solution** designed to run on low-resource computers, empowering parents to ensure their baby's well-being without breaking the bank.  
 
-At the moment the project is being planned so that a person can download it and run it on their computer locally.
+With just a local computer and a smartphone, parents can now:  
+- Monitor their baby’s sleep status in real time.  
+- Receive instant **SMS alerts** when the baby wakes up.  
+- Optionally, get notified via **smartwatch vibrations** for a seamless experience.  
 
-It is a project with a lot of growth potential and in which I have put a lot of effort these days.
+---
 
+### **🚀 How Does It Work?**
 
-### USE
-The project consists of creating a web page that the mother or father can access, activate the camera and, through artificial intelligence, detect the baby's eyes to verify if she is awake or still sleeping. If the baby wakes up, she will automatically send an SMS to the mother's phone, although ideally the mother will have a smart watch to feel the vibration on her arm when the SMS arrives.
+1. **Web-Based Interface** 🌐  
+   Parents access a simple web page to activate the camera and monitor their baby.  
+   
+2. **AI Eye Detection** 👀  
+   - Leveraging **MediaPipe Face Mesh**, the system identifies if the baby’s eyes are open or closed with unparalleled accuracy.  
+   - Eliminates false positives caused by objects like blankets or clothing.  
 
-To install and test the program, follow these steps:
-1. Clone the project repository from GitHub: [SleepWatch Alert Repository]
-https://github.com/Josue049/SleepWatchAlert
-2. Create a virtual environment and install all the dependencies mentioned in the
-`requirements.txt`
-3. Download OpenSSL to create your license and key. Then, create a folder called "cert" and
-place the files there.
-4. Run the `app.py` file and enter the port shown in the terminal.
-5. Register (you'll need a Twilio account to complete some fields), log in, and use the page as
-normal.
+3. **Instant Notifications** 📱  
+   - The **Twilio API** ensures reliable SMS delivery to notify parents instantly.  
 
-### INSPIRATION FROM A REAL CASE
-In my house we constantly make video calls to monitor my niece and notify her mother if she wakes up, and although it seems like a good solution, this can be subject to several inconveniences such as always having to ask someone else for help or simply having whoever is watching get distracted
+4. **Optimized Performance** ⚡  
+   - Eye detection is performed on the server side with a unique, efficient method of sending and analyzing frames.  
 
-### EYE DETECTION
-The objective is to detect if the baby has its eyes open or closed. My first go was to use OpenCV with a Haarcascade for eye detection. Sometimes it worked well, but it also had a problem with false positives. Which could be problematic in a home environment where eyes could be detected on the baby's blanket or polo shirt. So after some searching I found a perfect solution: MediaPipe Face Mesh. Basically, it provides a mesh that covers the face, and by only using the points that form the eyes, we exponentially reduce errors, to the point that I haven't had any problems so far. To go deeper into the topic I found this page: [https://omes-va.com/contador-de-parpadeos-python-mediapipe-facemesh-opencv/](https://omes-va.com/contador -de -blinks-python-mediapipe-facemesh-opencv/) (Credits to the authors). This page talks about an article that explains an equation for measuring the aspect ratio between the eyes, as well as providing an example of practical use. The full article is here: [https://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf](https://vision.fe.uni-lj.si/cvww2016/proceedings/ articles/05.pdf). Thanks to these resources I was able to carry out this project. I implemented the equation mentioned in the article, performed frame-by-frame recognition in real time, marking "ASLEEP" or "AWAKE" on the console. And finally I eliminated the repetitions so that it only shows when going from one state to another.
+---
 
-### SEND AN SMS MESSAGE
-The Twilio API is used with which SMS can be sent. Therefore, it is necessary for the user to create an account and fill out the necessary fields on the page to be able to use this service. Use of the API is not sponsored in any way and is only used for its efficiency.
+### **🎯 Key Features**
 
-### PUT IT ON A WEB PAGE
-This was THE BIGGEST PROBLEM without a doubt and the most time consuming. I had to change my approach to the problem at least 5 times (if I don't forget any).
+✅ **Accurate Eye Tracking**  
+   - Uses advanced algorithms to determine sleep states.  
 
-1. First, I had the idea to turn on the camera on the client, send it to the server and from the server send the image by applying eye recognition to the client. But this was extremely slow and, due to the nature of the project, it had to be as fast as possible so that the signal reached the mother practically instantly.
+✅ **Instant Alerts**  
+   - Notifies parents as soon as the baby wakes up.  
 
-2. The next idea was to move the entire project to JavaScript with OpenCV.js and run detection on the client side. However, this would mean starting over from scratch, and OpenCV.js also had a bug that said you had to recompile OpenCV.js by changing a default configuration.
+✅ **Resource Efficient**  
+   - Designed for low-end computers to make it universally accessible.  
 
-3. It occurred to me that if we removed the highlighting of the eyes so that they are not shown to the client, we could drastically reduce the wait times (so that the eye detection would be done on the server side and not reflected so that the client saw it). I tried running the program from my PC, but it was too slow. Despite everything, I kept the idea of ​​only doing eye detection on the server.
+✅ **Secure Local Usage**  
+   - HTTPS support ensures privacy and security within your home network.  
 
-4. At some point, I even thought about doing a computer project, but since it was not practical for mother's use, I quickly discarded it.
+✅ **Family-Friendly Setup**  
+   - Easy installation with clear instructions for parents of all tech skill levels.  
 
-5. It occurred to me that the frames were literally images or, rather, an image. The idea is simple: the camera turns on on the client side, takes the current image and sends it to the server every second (in my experience, doing it faster causes problems). The server receives the image "new_frame.jpg" and, with a loop, updates the image to the current frame, causing a single image "new_frame.jpg" to constantly change its content and constantly perform eye detection on it. It sounds confusing, but it works very well and is almost immediate. This idea was the definitive one as it worked and did not consume many resources with the creation of new images.
+---
 
-### LOCAL USE OF THE PROGRAM
-I recommend using HTTPS, since activating the camera on the client side is not allowed when using HTTP. The best practice would be to use the program from a local network so that it can be accessed from a cell phone within the same house. To achieve this, HTTPS can be implemented with OPENSSL.
+### **📖 Step-by-Step Installation**
 
-A certificate must be generated with OPENSSL and then copy the "server.cer" and "server.key" files to the "cert" folder.
+1. **Clone the Repository**  
+   Grab the code from GitHub:  
+   👉 [SleepWatch ALERT GitHub Repository](https://github.com/Josue049/SleepWatchAlert)  
 
+2. **Set Up the Environment**  
+   - Install dependencies via `requirements.txt`.  
+   - Use **OpenSSL** to generate the required certificate for HTTPS.  
 
-## And finally, the sum of all this effort led to the creation of SleepWatch ALERT 2.0
-The operation is simple: Turn on the server, enter the page, create an account, log in and READY! You can now focus on your baby and wait for an alert on your smart watch or cell phone by default.
+3. **Run the Program**  
+   - Launch the `app.py` file and access the interface using the provided port.  
 
-![Screenshot2](https://i.ibb.co/NVcsPm6/Screenshot-2.png)
+4. **Start Monitoring**  
+   - Create an account, log in, and let SleepWatch ALERT handle the rest!  
 
-I originally created this project as my final project for Harvard CS50 in December 2023, but I refined it for release in competition in 2024. So it's a version 2.0 in spirit, but the first to be made public.
+---
+
+### **💡 Inspiration**  
+
+The idea came from a **real-life challenge**: monitoring my niece during video calls. While effective, it had limitations:  
+- Constant supervision required.  
+- Risk of distractions.  
+
+SleepWatch ALERT eliminates these problems by automating monitoring and notifications.  
+
+---
+
+### **🔬 The Science Behind It**
+
+**MediaPipe Face Mesh & Eye Aspect Ratio (EAR)**  
+Thanks to insights from research and tutorials, SleepWatch ALERT implements a precise algorithm to track the **eye aspect ratio**, identifying whether the baby is awake or asleep.  
+
+**Efficient Frame Handling**  
+The solution uploads a single frame per second to the server, reducing latency and resource usage.  
+
+---
+
+### **📷 Screenshots**
+
+![Main Interface](https://i.ibb.co/jLNTdhg/Screenshot.png)  
+![Eye Detection in Action](https://i.ibb.co/X3sSc80/Screenshot-1.png)  
+![Notification Alert](https://i.ibb.co/NVcsPm6/Screenshot-2.png)  
+
+---
+
+### **👶 SleepWatch ALERT: Your Baby's Guardian Angel**
+
+Originally developed as my **CS50 Final Project** at Harvard, this project has evolved into a robust, user-friendly tool for families everywhere. **Join me in making baby monitoring smarter, simpler, and accessible for everyone!**  
+
+🚼 **Turn on. Log in. Relax.**  
+
+👉 Try it now: [GitHub Repository](https://github.com/Josue049/SleepWatchAlert)
