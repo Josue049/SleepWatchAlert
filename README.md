@@ -1,106 +1,86 @@
-# **SleepWatch ALERT 2.0** 🚼💤  
-**Revolutionizing Baby Monitoring for Every Family**
+# 🌙 SleepWatch ALERT 🚼  
+**Your Baby's Safety, Simplified.**  
+
+### 💡 **Project Overview**  
+SleepWatch ALERT is a free, user-friendly solution to monitor your baby. Designed for families without access to costly baby surveillance systems, this tool offers peace of mind by detecting if your baby is awake or asleep. It’s lightweight, efficient, and optimized to run on low-resource computers.  
+
+![Interface Screenshot](https://i.ibb.co/jLNTdhg/Screenshot.png)  
 
 ---
 
-### **🌟 A Free and Accessible Baby Monitoring Solution**  
-
-**Why SleepWatch ALERT?**  
-Not every family can afford specialized baby monitoring cameras. **SleepWatch ALERT** is a **lightweight, AI-driven solution** designed to run on low-resource computers, empowering parents to ensure their baby's well-being without breaking the bank.  
-
-With just a local computer and a smartphone, parents can now:  
-- Monitor their baby’s sleep status in real time.  
-- Receive instant **SMS alerts** when the baby wakes up.  
-- Optionally, get notified via **smartwatch vibrations** for a seamless experience.  
+### 🌟 **Why SleepWatch ALERT?**  
+- 🍼 **Affordable and Accessible**: No need for expensive equipment.  
+- ⚡ **Fast and Reliable**: Real-time baby monitoring with minimal delay.  
+- 💻 **Easy Setup**: Works locally on your computer with simple instructions.  
+- 📳 **Smart Alerts**: Sends notifications via SMS or your smartwatch when your baby wakes up.
 
 ---
 
-### **🚀 How Does It Work?**
+### 🛠 **How It Works**  
 
-1. **Web-Based Interface** 🌐  
-   Parents access a simple web page to activate the camera and monitor their baby.  
-   
-2. **AI Eye Detection** 👀  
-   - Leveraging **MediaPipe Face Mesh**, the system identifies if the baby’s eyes are open or closed with unparalleled accuracy.  
-   - Eliminates false positives caused by objects like blankets or clothing.  
+1. **Eye Detection with AI** 👀  
+   Using MediaPipe Face Mesh, SleepWatch ALERT precisely detects your baby’s eye status, avoiding false positives from objects like blankets or clothing.  
+   - **Result**: Reliable real-time detection of "ASLEEP" or "AWAKE."  
 
-3. **Instant Notifications** 📱  
-   - The **Twilio API** ensures reliable SMS delivery to notify parents instantly.  
+2. **Instant Alerts** 📲  
+   Powered by the **Twilio API**, SleepWatch ALERT sends SMS notifications to your phone or smartwatch the moment your baby wakes up.  
 
-4. **Optimized Performance** ⚡  
-   - Eye detection is performed on the server side with a unique, efficient method of sending and analyzing frames.  
+3. **Web-Based Convenience** 🌐  
+   - Securely access the tool from any device within your local network.  
+   - HTTPS ensures safe and reliable camera activation.  
 
----
-
-### **🎯 Key Features**
-
-✅ **Accurate Eye Tracking**  
-   - Uses advanced algorithms to determine sleep states.  
-
-✅ **Instant Alerts**  
-   - Notifies parents as soon as the baby wakes up.  
-
-✅ **Resource Efficient**  
-   - Designed for low-end computers to make it universally accessible.  
-
-✅ **Secure Local Usage**  
-   - HTTPS support ensures privacy and security within your home network.  
-
-✅ **Family-Friendly Setup**  
-   - Easy installation with clear instructions for parents of all tech skill levels.  
+![Alert Screenshot](https://i.ibb.co/X3sSc80/Screenshot-1.png)  
 
 ---
 
-### **📖 Step-by-Step Installation**
-
-1. **Clone the Repository**  
-   Grab the code from GitHub:  
-   👉 [SleepWatch ALERT GitHub Repository](https://github.com/Josue049/SleepWatchAlert)  
-
-2. **Set Up the Environment**  
-   - Install dependencies via `requirements.txt`.  
-   - Use **OpenSSL** to generate the required certificate for HTTPS.  
-
-3. **Run the Program**  
-   - Launch the `app.py` file and access the interface using the provided port.  
-
-4. **Start Monitoring**  
-   - Create an account, log in, and let SleepWatch ALERT handle the rest!  
+### 🚀 **Setup Instructions**  
+1. Clone the repository from GitHub: [**SleepWatch ALERT Repository**](https://github.com/Josue049/SleepWatchAlert).  
+2. Set up a virtual environment and install the dependencies listed in `requirements.txt`.  
+3. Use **OpenSSL** to create a certificate and save it in the `cert` folder.  
+4. Run `app.py` and access the displayed port.  
+5. Create a Twilio account for SMS alerts.  
+6. Register, log in, and start monitoring!
 
 ---
 
-### **💡 Inspiration**  
-
-The idea came from a **real-life challenge**: monitoring my niece during video calls. While effective, it had limitations:  
-- Constant supervision required.  
-- Risk of distractions.  
-
-SleepWatch ALERT eliminates these problems by automating monitoring and notifications.  
+### 🧪 **Tech Behind SleepWatch ALERT**  
+- **MediaPipe Face Mesh**: Tracks facial landmarks for precise eye detection.  
+- **Python + OpenCV**: Optimized for real-time image processing.  
+- **Twilio API**: Handles instant SMS notifications.  
+- **Flask**: Powers the user-friendly web interface.  
 
 ---
 
-### **🔬 The Science Behind It**
+### 🎯 **Features at a Glance**  
 
-**MediaPipe Face Mesh & Eye Aspect Ratio (EAR)**  
-Thanks to insights from research and tutorials, SleepWatch ALERT implements a precise algorithm to track the **eye aspect ratio**, identifying whether the baby is awake or asleep.  
-
-**Efficient Frame Handling**  
-The solution uploads a single frame per second to the server, reducing latency and resource usage.  
-
----
-
-### **📷 Screenshots**
-
-![Main Interface](https://i.ibb.co/jLNTdhg/Screenshot.png)  
-![Eye Detection in Action](https://i.ibb.co/X3sSc80/Screenshot-1.png)  
-![Notification Alert](https://i.ibb.co/NVcsPm6/Screenshot-2.png)  
+| Feature                     | Description                                   |  
+|-----------------------------|-----------------------------------------------|  
+| **Eye Detection**           | Reliable AI-based tracking of open/closed eyes. |  
+| **Real-Time Notifications** | Alerts via SMS or smartwatch vibrations.      |  
+| **Web Access**              | Local, secure access through a browser.       |  
+| **Lightweight**             | Runs smoothly on low-resource devices.        |  
+| **Customizable**            | Compatible with different user setups.        |  
 
 ---
 
-### **👶 SleepWatch ALERT: Your Baby's Guardian Angel**
+### 🍼 **Inspiration from Real Life**  
+SleepWatch ALERT was born out of necessity. My family used video calls to monitor my niece, but this method was prone to distractions and delays. This project aims to eliminate these issues, giving parents a reliable, automated way to ensure their baby's safety.  
 
-Originally developed as my **CS50 Final Project** at Harvard, this project has evolved into a robust, user-friendly tool for families everywhere. **Join me in making baby monitoring smarter, simpler, and accessible for everyone!**  
+---
 
-🚼 **Turn on. Log in. Relax.**  
+### 🌍 **Future Potential**  
+The project is designed with scalability in mind. With further development, it can evolve into a universally accessible tool that ensures baby safety worldwide.  
 
-👉 Try it now: [GitHub Repository](https://github.com/Josue049/SleepWatchAlert)
+![Result Screenshot](https://i.ibb.co/NVcsPm6/Screenshot-2.png)  
+
+---
+
+### 💪 **Built with Love**  
+SleepWatch ALERT began as my final project for **Harvard CS50** in 2023. It has since evolved into version 2.0, refined for real-world applications.  
+
+👉 **Ready to give it a try? Download now and experience peace of mind!**  
+[**GitHub Repository**](https://github.com/Josue049/SleepWatchAlert)  
+
+---  
+
+💤 **SleepWatch ALERT**: Because every parent deserves a good night's sleep.
