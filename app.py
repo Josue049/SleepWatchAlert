@@ -11,6 +11,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 from twilio.rest import Client
+import sqlite3
 
 mp_face_mesh = mp.solutions.face_mesh
 index_left_eye = [33, 160, 158, 133, 153, 144]
@@ -28,6 +29,26 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+# Si no existe, la creamos con sqlite3
+if not os.path.exists("registros.db"):
+    conn = sqlite3.connect("registros.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            user_baby TEXT NOT NULL,
+            hash TEXT NOT NULL,
+            phone_number TEXT NOT NULL,
+            twilio_number TEXT NOT NULL,
+            account TEXT NOT NULL,
+            token TEXT NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+# Ahora sí, conectamos con CS50
 db = SQL("sqlite:///registros.db")
 
 def apology(message, code=400):
@@ -213,4 +234,4 @@ def get_frame():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, ssl_context=("cert/server.cer", "cert/server.key"))
+    app.run(host="0.0.0.0", port=5000)
