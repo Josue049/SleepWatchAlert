@@ -2,5 +2,5 @@ pillow
 cs50
 flask_session
 opencv-python
-mediapipe
+mediapipe==0.10.21
 twilio
